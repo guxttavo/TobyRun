@@ -1,0 +1,63 @@
+﻿@model IEnumerable<Denuncia>
+
+<header>
+    <link rel="stylesheet" href="~/css/Pages/home.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/lib/iziToast/dist/css/iziToast.min.css" />
+</header>
+
+<h1 class="titulo-geral">Suas Denúncias: </h1>
+<div class="container-geral"></div>
+<div class="container-batata"></div>
+<div class="confirmacao-fechar-denuncia"></div>
+
+<section class="container-geral">
+    @foreach (Denuncia denuncia in Model)
+    {
+        <div class="container-denuncia">
+            <div class="conteudo-denuncia">
+                <div class="opcoes-denuncia">
+                    <h3>Nº: @denuncia.Id</h3>
+                    <h3>Data: @denuncia.Data.Date.ToString("dd/MM/yyyy")</h3>
+                    <h3>Bairro: @denuncia.Bairro.Nome</h3>
+                    <h3>Categoria: @denuncia.Categoria.Nome</h3>
+                    @* @if (@denuncia.Categoria.IdCategoriaPai != null)
+                {
+                <h3>Subcategoria: @denuncia.Categoria.Nome</h3>
+                } *@
+                </div>
+                <div class="ajuste">
+                    <text-area class="descricao">
+                        @denuncia.Descricao
+                    </text-area>
+                    <div class="botoes-macaco">
+                        <a class="btn btn-danger" onclick="home.fecharDenuncia(@denuncia.Id)">
+                            Fechar
+                        </a>
+                        <a class="btn btn-primary" onclick="home.viewEditarDenuncia(@denuncia.Id)">
+                            Editar
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+</section>
+
+<script src="~/lib/jquery/dist/jquery.min.js" asp-append-version="true"></script>
+<script src="~/js/site.js" asp-append-version="true"></script>
+<script src="~/js/Pages/home.js" asp-append-version="true"></script>
+<script src="~/js/Pages/home.css" asp-append-version="true"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+    crossorigin="anonymous"></script>
+<script>
+    home.init({
+        urls: {
+            fecharDenuncia: '@Url.Action("FecharDenuncia", "home")',
+            viewEditarDenuncia: '@Url.Action("ViewEditarDenuncia", "home")',
+            editarDenuncia: '@Url.Action("EditarDenuncia", "home")',
+            viewHome: '@Url.Action("Index", "home")',
+        }
+    });
+</script>

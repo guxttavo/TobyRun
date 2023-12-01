@@ -1,0 +1,99 @@
+* {
+    overflow-y: hidden;
+    overflow-x: hidden;
+}
+
+/* 
+.container-geral-graficos {
+    display: flex;
+} */
+
+.campo-pesquisa {
+    width: 240px;
+    height: 30px;
+    margin: 15px 5px 0px 10px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+    color: #333;
+    background-color: #ccc;
+    transition: border-color 0.2s;
+}
+
+.campo-pesquisa:focus {
+    border-color: #000000;
+    outline: none;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+.container-bairros {
+    color: white;
+    background-color: #444;
+    width: 14vw;
+    height: 90.4vh;
+    margin: 0px;
+    overflow-y: scroll;
+}
+
+.opcao-bairro {
+    font-size: 20px;
+    list-style: none;
+    padding: 20px;
+}
+
+.opcao-bairro li {
+    background-color: gray;
+    border-radius: 10px 0px 0px 10px;
+    margin-bottom: 10px;
+    padding-left: 8px;
+    width: 257px;
+}
+
+.container-bairros::-webkit-scrollbar {
+    width: 10px;
+}
+
+.container-bairros::-webkit-scrollbar-track {
+    background-color: #444;
+}
+
+.container-bairros::-webkit-scrollbar-thumb {
+    background-color: rgb(177, 176, 176);
+    border-radius: 10px;
+}
+
+.estrutura-graficos {
+    display: flex;
+    flex-wrap: wrap;
+    width: 65vw;
+    margin: 10px;
+    padding: 5px;
+}
+
+.estrutura-graficos div {
+    margin: 5px;
+    margin-right: 80px;
+}
+
+.estrutura-graficos h3 {
+    background-color: rgba(255, 255, 255, 0.253);
+    border-radius: 5px;
+}
+
+.titulo-grafico {
+    background-color: rgba(179, 176, 176, 0.632);
+    margin: 25px 0px 20px 0px;
+    padding-left: 30px;
+    text-align: center;
+}
+
+#qtdDenuncia-bairro {
+    display: flex;
+    justify-content: center;
+}
+
+#qtdDenuncia-categoria {
+    display: flex;
+    justify-content: center;
+}

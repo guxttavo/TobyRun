@@ -1,0 +1,89 @@
+@model List<Usuario>
+
+<header>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap demo</title>
+    <link rel="stylesheet" href="~/css/Pages/usuario.css" asp-append-version="true" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+
+</header>
+
+<h1 class="titulo-geral">Gerenciamento de Usuários</h1>
+<div class="container-listar"></div>
+<div class="container-cadastrar"></div>
+<div class="container-editar"></div>
+
+<div class="container-listar">
+    <button type="button" class="btn btn-primary cadastro-usuario" onclick="usuario.viewCadastrar()">Cadastrar Novo
+        Usuário</button>
+    <div class="estrutura-table">
+        <table class="table table-dark table-striped table-hover">
+            <thead>
+                <tr>
+                    <th scope="col">Id</th>
+                    <th scope="col">Nome</th>
+                    <th scope="col">CPF</th>
+                    <th scope="col">Data de Nascimento</th>
+                    <th scope="col">Telefone</th>
+                    <th scope="col">Email</th>
+                    <th scope="col">CEP</th>
+                    <th scope="col">Senha</th>
+                    <th scope="col">Admin</th>
+                    <th scope="col">Opções</th>
+                </tr>
+            </thead>
+            <tbody>
+                @if (Model != null && Model.Any())
+                {
+                    @foreach (Usuario usuario in Model)
+                    {
+                        <tr>
+                            <td>@usuario.Id</td>
+                            <td>@usuario.Nome</td>
+                            <td>@usuario.Cpf</td>
+                            <td>@usuario.DataNascimento.ToString("dd/MM/yyyy")</td>
+                            <td>@usuario.Telefone</td>
+                            <td>@usuario.Email</td>
+                            <td>@usuario.Cep</td>
+                            <td>@usuario.Senha</td>
+                            <td>@usuario.Admin</td>
+                            <td>
+                                <div class="btn-group" role="group">
+                                    <a role="button" class="btn btn-primary"
+                                        onclick="usuario.viewEditar(@usuario.Id)">Editar</a>
+                                    <a class="btn btn-danger" onclick="usuario.excluir(@usuario.Id)">Apagar</a>
+
+                                </div>
+                            </td>
+                        </tr>
+                    }
+                }
+                else
+                {
+                    <h1>Nenhum dado encontrado!</h1>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<script src="~/lib/jquery/dist/jquery.min.js" asp-append-version="true"></script>
+<script src="~/js/site.js" asp-append-version="true"></script>
+<script src="~/js/Pages/usuario.js" asp-append-version="true"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+    crossorigin="anonymous"></script>
+<script>
+    usuario.init({
+        urls: {
+            viewCadastrar: '@Url.Action("ViewCadastrar", "usuario")',
+            viewListar: '@Url.Action("Index", "usuario")',
+            viewEditar: '@Url.Action("ViewEditar", "usuario")',
+            cadastrarUsuario: '@Url.Action("CadastrarUsuario", "usuario")',
+            deletarUsuario: '@Url.Action("DeletarUsuario", "usuario")',
+            editarUsuario: '@Url.Action("EditarUsuario", "usuario")'
+        }
+    });
+</script>

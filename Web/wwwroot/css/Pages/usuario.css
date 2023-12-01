@@ -1,0 +1,34 @@
+* {
+    overflow-y: hidden;
+}
+
+.cadastro-usuario {
+    margin: 10px
+}
+
+.estrutura-table {
+    margin: 10px;
+}
+
+.cor-de-fundo-cadastrar {
+    height: 500px;
+    width: 620px;
+    background-color: #17171a;
+    border-radius: 5px;
+}
+
+.ajuste-botoes-cadastro {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 10px;
+    font-size: 20px;
+}
+
+.ajuste-botoes-cadastro button {
+    margin-right: 15px;
+}
+
+.nome-cadastro {
+    margin-right: 190px;
+}

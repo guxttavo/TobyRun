@@ -1,0 +1,103 @@
+@model List<Categoria>
+
+@{
+    var bairros = ViewBag.BuscarBairros;
+    var jooj = "jooj";
+}
+
+<head>
+    <link rel="stylesheet" href="~/css/Pages/denuncia.css" asp-append-version="true" />
+</head>
+
+<div class="container-geral">
+    <h1 class="titulo-geral ">Realize uma Denuncia</h1>
+</div>
+
+<div class="container-cadastrar">
+    <h1 class="titulo-form">Realize uma Denúncia</h1>
+    <div class="cor-de-fundo" style="border-radius: 5px">
+        <div class="container mt-5">
+            <form id="cadastrarDenuncia">
+                <div class="row">
+                    <input type="hidden" name="id">
+                    <div class="mb-3 col-md-6 cacete02">
+                        <label>Data</label>
+                        <input type="date" class="form-control" name="data" required>
+                    </div>
+                    <div class="mb-3 col-md-6 cacete">
+                        <label for="tipoUsuario" class="form-label">Bairro</label>
+                        <select id="bairros" class="form-select drop-down" name="Bairro">
+                            @foreach (var bairro in bairros)
+                            {
+                                <option value="@bairro.Id">@bairro.Nome</option>
+
+                            }
+                        </select>
+                    </div>
+                    <div class="mb-3 col-md-6">
+                        <label for="tipoUsuario" class="form-label">Categoria Denuncia</label>
+                        <select id="categorias" class="form-select drop-down" name="IdCategoria">
+                            @if (Model != null && Model.Any())
+                            {
+                                @foreach (var categoria in Model)
+                                {
+                                    @if (categoria.IdCategoriaPai == null)
+                                    {
+                                        <option data-nome="@categoria.Nome" value="@categoria.Id">@categoria.Nome</option>
+                                    }
+                                }
+                            }
+                            else
+                            {
+                                <h1>Nenhum dado encontrado!</h1>
+                            }
+                        </select>
+                    </div>
+                    <div class="mb-3 col-md-6">
+                        <label for="tipoUsuario" class="form-label">Subcategoria Denuncia</label>
+                        <select id="subcategorias" class="form-select drop-down" name="IdCategoriaPai">
+                            @if (Model != null && Model.Any())
+                            {
+                                @foreach (var subcategoria in Model)
+                                {
+                                    @if (subcategoria.IdCategoriaPai != null)
+                                    {
+                                        <option data-nome="@subcategoria.Nome" value="@subcategoria.Id" name="">
+                                            @subcategoria.Nome</option>
+                                    }
+                                }
+                            }
+                            else
+                            {
+                                <h1>Nenhum dado encontrado!</h1>
+                            }
+                        </select>
+                    </div>
+                    <div class="jooj form-group">
+                        <label class="descricao">Descrição</label>
+                        <textarea rows="3" id="cadastrarDenuncia" name="Descricao"></textarea>
+                    </div>
+                </div>
+                <div class="ajuste-botoes">
+                    <button type="submit" class="btn btn-danger botao-denunciar"
+                        onclick="denuncia.cadastrarDenuncia()">Denunciar</button>
+                </div>
+                <a class="btn btn-dark" asp-controller="Usuario" asp-action="Index">Voltar</a>
+            </form>
+        </div>
+    </div>
+</div>
+
+<script src="~/lib/apexcharts/apexcharts.min.js" asp-append-version="true"></script>
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+<script src="~/js/site.js" asp-append-version="true"></script>
+<script src="~/js/Pages/denuncia.js" asp-append-version="true"></script>
+
+<script>
+    denuncia.init({
+        urls: {
+            cadastrarDenuncia: '@Url.Action("CadastrarDenuncia", "Denuncia")',
+            viewGraficos: '@Url.Action("Index", "Grafico")',
+        }
+    });
+</script>

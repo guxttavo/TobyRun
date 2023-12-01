@@ -1,0 +1,20 @@
+* {
+    overflow-y: hidden;
+}
+
+.btn-enviar-suporte {
+    margin-top: 25px;
+    width: 200px;
+    height: 50px;
+    font-size: 25px !important;
+    margin-bottom: 15px;
+    background-color: #212529;
+    margin-bottom: 10px;
+    margin-top: 40px;
+}
+
+.cor-de-fundo-suporte {
+    height: 520px;
+    width: 520px;
+    background-color: #17171a;
+}

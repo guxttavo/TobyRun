@@ -1,0 +1,117 @@
+<header>
+    <link rel="stylesheet" href="~/css/Pages/login.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/lib/iziToast/dist/css/iziToast.min.css" />
+</header>
+
+@{
+    Layout = null;
+}
+
+<body>
+    <div class="container-geral">
+        <div class="container-esquerdo">
+            <img class="imagem" src="~/img/Screenshot_3.png" alt="">
+        </div>
+        <div class="container-direito">
+            <form class="formulario" id="formularioLogin">
+                <h1>Login</h1>
+                <div class="alinhamento">
+                    <div class="form-group">
+                        <input type="email" name="Email" class="form-control" placeholder="Email">
+                    </div>
+                    <div class="form-group">
+                        <input type="password" name="Senha" class="form-control" placeholder="Senha">
+                    </div>
+                </div>
+                <div class="form-group form-check opcoes-form">
+                    @* <input type="checkbox" class="form-check-input" id="remember"> *@
+                    <a class="esqueci-minha-senha" onclick="login.mostrarEsqueciMinhaSenha()">Esqueci minha senha</a>
+                </div>
+                <div class="buttons">
+                    <button type="button" class="btn btn-primary" onclick="login.logar()">Entrar</button>
+                    <button type="submit" class="btn btn-primary" onclick="login.mostrarCadastrar()">Criar
+                        Conta</button>
+                </div>
+            </form>
+            <div class="container-criar-conta" style="display:none">
+                <form class="formulario-cadastrar" id="cadastroUsuario">
+                    <h1>Cadastrar</h1>
+                    <div class="row">
+                        <div class="mb-1 col-md-12 nome">
+                            <label class="form-label">Nome</label>
+                            <input type="text" class="form-control" required>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="mb-3 col-md-4">
+                            <label class="form-label">CPF</label>
+                            <input type="text" class="form-control" required>
+                        </div>
+                        <div class="mb-3 col-md-4">
+                            <label class="form-label">CEP</label>
+                            <input type="text" class="form-control" required>
+                        </div>
+                        <div class="mb-3 col-md-4">
+                            <label class="form-label">Telefone</label>
+                            <input type="number" class="form-control" required>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="mb-3 col-md-4">
+                            <label class="form-label">Email</label>
+                            <input type="email" class="form-control" required>
+                        </div>
+                        <div class="mb-3 col-md-4">
+                            <label class="form-label data">Data Nascimento</label>
+                            <input type="date" class="form-control" required>
+                        </div>
+                        <div class="mb-3 col-md-4">
+                            <label class="form-label">Senha</label>
+                            <input type="password" class="form-control" required>
+                        </div>
+                        @* <div class="mb-3 col-md-4">
+                        <label class="form-label">Confirmar Senha</label>
+                        <input type="password" class="form-control" asp-for="Senha" required>
+                        </div> *@
+                    </div>
+                    <div class="ajuste-botoes-cadastro">
+                        <button type="button" class="btn btn-primary"
+                            onclick="usuario.cadastrarUsuario()">Cadastrar</button>
+                        <a class="btn btn-dark" asp-controller="Usuario" asp-action="Index">Voltar</a>
+                    </div>
+                </form>
+            </div>
+            <div class="container-esqueci-minha-senha" style="display:none">
+                <form class="formulario-esqueci-minha-senha">
+                    <h1 class="jooj">Digite seu email de acesso</h1>
+                    <div class="row">
+                        <div class="mb-1 col-md-12 nome">
+                            <label class="form-label">Email</label>
+                            <input type="text" class="form-control" required>
+                        </div>
+                    </div>
+                    <div class="ajuste-btn-enviar-email">
+                        <button type="button" class="btn btn-primary">Enviar</button>
+                        <a class="btn btn-dark" asp-controller="Usuario" asp-action="Index">Voltar</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+    </div>
+</body>
+
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+<script src="~/lib/iziToast/dist/js/iziToast.min.js"></script>
+<script src="~/js/site.js" asp-append-version="true"></script>
+<script src="~/js/Pages/login.js" asp-append-version="true"></script>
+
+<script>
+    login.init({
+        urls: {
+            realizarLogin: '@Url.Action("Entrar", "login")',
+            viewHome: '@Url.Action("Index", "home")'
+        }
+    });
+</script>

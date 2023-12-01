@@ -1,0 +1,32 @@
+* {
+    overflow: hidden;
+}
+
+.botao-denunciar {
+    margin-top: 60px;
+    width: 180px;
+    height: 50px;
+    font-size: 25px !important;
+    margin-bottom: 15px;
+}
+
+.jooj {
+    display: flex;
+    flex-direction: column;
+    resize: none;
+    /* height: 150px; */
+    /* margin-bottom: -100px; */
+    margin-top: -10px;
+}
+
+textarea {
+    margin-bottom: -20px;
+}
+
+.cacete {
+    margin-top: -6px;
+}
+
+.cacete02 {
+    margin-top: 2px;
+}

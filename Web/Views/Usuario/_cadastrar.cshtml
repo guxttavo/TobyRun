@@ -1,0 +1,65 @@
+@model Usuario
+
+@{
+    Layout = null;
+}
+
+<div class="container-cadastrar">
+    <h1 class="titulo-form">Cadastro de Usuário</h1>
+    <div class="cor-de-fundo-cadastrar">
+        <div class="container mt-5">
+            <form class="formulario-cadastrar" id="cadastroUsuario">
+                <div class="row">
+                    <div class="mb-3 col-md-4">
+                        <label class="form-label">Nome</label>
+                        <input type="text" class="form-control" asp-for="Nome" required>
+                    </div>
+                    <div class="mb-3 col-md-4">
+                        <label class="form-label">Email</label>
+                        <input type="email" class="form-control" asp-for="Email" required>
+                    </div>
+                    <div class="mb-3 col-md-4">
+                        <label class="form-label">Tipo de Usuário</label>
+                        <select class="form-select drop-down" asp-for="Admin" style="width: 100%;">
+                            <option value="true">Admin</option>
+                            <option value="false">Padrão</option>
+                        </select>
+                    </div>
+
+                </div>
+                <div class="row">
+                    <div class="mb-3 col-md-4">
+                        <label class="form-label">CPF</label>
+                        <input type="text" class="form-control" asp-for="Cpf" required>
+                    </div>
+                    <div class="mb-3 col-md-4">
+                        <label class="form-label">CEP</label>
+                        <input type="text" class="form-control" asp-for="Cep" required>
+                    </div>
+                    <div class="mb-3 col-md-4">
+                        <label class="form-label">Telefone</label>
+                        <input type="number" class="form-control" asp-for="Telefone" required>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="mb-3 col-md-4">
+                        <label class="form-label data">Data Nascimento</label>
+                        <input type="date" class="form-control" asp-for="DataNascimento" required>
+                    </div>
+                    <div class="mb-3 col-md-4">
+                        <label class="form-label">Senha</label>
+                        <input type="password" class="form-control" asp-for="Senha" required>
+                    </div>
+                    <div class="mb-3 col-md-4">
+                        <label class="form-label">Confirmar Senha</label>
+                        <input type="password" class="form-control">
+                    </div>
+                </div>
+                <div class="ajuste-botoes-cadastro">
+                    <button type="button" class="btn btn-primary" onclick="usuario.cadastrarUsuario()">Cadastrar</button>
+                    <a class="btn btn-dark" asp-controller="Usuario" asp-action="Index">Voltar</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

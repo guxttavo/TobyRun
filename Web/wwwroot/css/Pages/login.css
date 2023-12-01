@@ -1,0 +1,120 @@
+:root {
+    --cor-primaria: #4A4C55;
+    --cor-secundaria: #E1DDDD;
+    --cor-input: black;
+}
+
+.container-geral {
+    display: flex;
+    justify-content: space-between;
+    height: 100vh;
+}
+
+.container-esquerdo {
+    width: 50%;
+}
+
+.imagem {
+    height: 100%;
+    width: 100%;
+}
+
+.container-direito {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+    background-color: var(--cor-secundaria);
+}
+
+.formulario {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 510px;
+    width: 510px;
+    background-color: var(--cor-primaria);
+    color: white;
+}
+
+.formulario-cadastrar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 510px;
+    padding: 20px;
+    padding-bottom: 100px;
+    width: 510px;
+    background-color: var(--cor-primaria);
+    color: white;
+}
+
+.formulario-esqueci-minha-senha {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 510px;
+    padding: 20px;
+    padding-bottom: 100px;
+    width: 510px;
+    background-color: var(--cor-primaria);
+    color: white;
+}
+
+.jooj {
+    text-align: center;
+}
+
+.nome {
+    margin-right: 260px;
+}
+
+.alinhamento {
+    margin-right: 18px;
+}
+
+.formulario input {
+    margin: 10px;
+}
+
+.buttons {
+    display: flex;
+    flex-direction: column;
+    width: 200px;
+    height: 150px;
+    margin: 15px;
+}
+
+.buttons button {
+    margin-bottom: 20px;
+}
+
+.btn {
+    color: black;
+}
+
+.opcoes-form {
+    display: flex;
+    flex-direction: column;
+    width: 200px;
+}
+
+.esqueci-minha-senha {
+    all: unset;
+}
+
+.esqueci-minha-senha:hover {
+    color: #2580fd;
+    cursor: pointer;
+}
+
+.ajuste-btn-enviar-email {
+    margin-top: 20px;
+}
+
+.ajuste-btn-enviar-email button {
+    margin-right: 10px;
+}

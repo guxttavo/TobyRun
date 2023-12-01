@@ -1,0 +1,74 @@
+@* @model List<Categoria> *@
+@model Denuncia
+
+@{
+    var bairros = ViewBag.BuscarBairros;
+    var categorias = ViewBag.BuscarCategorias;
+    Layout = null;
+}
+
+<div class="container-batata">
+    <h1 class="titulo-form-editar-denuncia">Editar uma Denúncia</h1>
+    <div class="cor-de-fundo-editar-denuncia" style="border-radius:5px">
+        <div class="container mt-5" style="color:white">
+            <form id="editarDenuncia">
+                <div class="row">
+                    <input type="hidden" asp-for="Id">
+                    <input type="hidden" asp-for="IdUsuario">
+                    <div class="mb-3 col-md-6 cacete02">
+                        <label class="cachorro" style="margin-left:120px">Data</label>
+                        <input type="date" class="form-control" asp-for="Data" required>
+                    </div>
+                    <div class="mb-3 col-md-6 boi">
+                        <label for="tipoUsuario" class="form-label"
+                            style="margin-left:120px;margin-top:-1px;margin-bottom: 1px">Bairro</label>
+                        <select id="bairros" class="form-select drop-down" asp-for="IdBairro">
+                            @foreach (var bairro in bairros)
+                            {
+                                <option value="@bairro.Id">@bairro.Nome</option>
+
+                            }
+                        </select>
+                    </div>
+                    <div class="mb-3 col-md-6">
+                        <label for="tipoUsuario" class="cachorro form-label" style="margin-left:65px">Categoria
+                            Denuncia</label>
+                        <select id="categorias" class="form-select drop-down" asp-for="IdCategoria">
+                            @foreach (var categoria in categorias)
+                            {
+                                @if (categoria.IdCategoriaPai == null)
+                                {
+                                    <option data-nome="@categoria.Nome" value="@categoria.Id">@categoria.Nome</option>
+                                }
+                            }
+                        </select>
+                    </div>
+                    <div class="mb-3 col-md-6">
+                        <label for="tipoUsuario" class="cachorro form-label" style="margin-left:55px">Subcategoria
+                            Denuncia</label>
+                        <select id="subcategorias" class="form-select drop-down">
+                            @foreach (var subcategoria in categorias)
+                            {
+                                @if (subcategoria.IdCategoriaPai != null)
+                                {
+                                    <option data-nome="@subcategoria.Nome" value="@subcategoria.Id" name="">
+                                        @subcategoria.Nome</option>
+                                }
+                            }
+
+                        </select>
+                    </div>
+                    <div class="jooj-denuncia form-group">
+                        <label class="cachorro">Descrição</label>
+                        <textarea rows="3" id="cadastrarDenuncia" asp-for="Descricao"></textarea>
+                    </div>
+                </div>
+                <div class="ajuste-botoes">
+                    <button type="button" class="btn btn-danger botao-denunciar"
+                        onclick="home.editarDenuncia()">Denunciar</button>
+                    <a class="btn btn-dark" asp-controller="Home" asp-action="Index">Voltar</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

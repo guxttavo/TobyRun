@@ -1,0 +1,269 @@
+body {
+  height: 100vh;
+  width: 100vw;
+}
+
+* {
+  font-family: 'Montserrat', sans-serif;
+}
+
+#main {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+}
+
+#corpo {
+  position: absolute;
+  max-height: 100%;
+  /* max-width: 82.5%; */
+  width: 81.5vw;
+  height: 100vh;
+  overflow-y: auto;
+  overflow-x: hidden;
+  margin-left: 290px;
+  background-color: gray;
+}
+
+.barra-lateral {
+  position: absolute;
+  background-color: #17171a;
+  width: 20vw;
+  height: 100vh;
+}
+
+/* código referente ao menu lateral */
+
+.titulo-principal {
+  color: white;
+  font-size: 45px;
+  text-decoration: none;
+  font-family: 'Montserrat', sans-serif;
+  margin-left: 25px;
+  color: blue;
+}
+
+.titulo-principal:hover {
+  color: white;
+  font-size: 45px;
+  text-decoration: none;
+  font-family: 'Montserrat', sans-serif;
+  margin-left: 25px;
+  color: rgb(5, 5, 164);
+}
+
+.titulo-geral {
+  font-family: 'Montserrat', sans-serif;
+  background-color: #17171a;
+  color: white;
+  font-size: 40px;
+  padding: 10px;
+  margin: 0px;
+}
+
+.opcoes {
+  list-style: none;
+  font-size: 18px;
+  width: 266px;
+  font-family: 'Montserrat', sans-serif;
+  padding: 0px;
+  padding-top: 20px;
+}
+
+.opcao-menu {
+  color: white;
+  text-decoration: none;
+}
+
+.opcoes-lista {
+  text-align: left;
+  margin-top: 20px;
+  margin-left: 15px;
+}
+
+.opcoes-lista:hover {
+  background-color: #242323;
+  /* width: 550px !important; */
+}
+
+.opcao-menu {
+  display: flex;
+}
+
+.opcao-menu span {
+  margin-right: 10px;
+}
+
+.bem-vindo {
+  font-family: 'Montserrat', sans-serif;
+  color: white;
+  font-size: 20px;
+  padding: 30px 0px 0px 20px;
+}
+
+/* código referente aos formulários */
+
+.titulo-form {
+  font-size: 45px;
+  padding: 10px;
+  margin-top: 20px;
+  color: white;
+  background-color: #17171a;
+  border-radius: 15px 15px 15px 15px;
+}
+
+.container-cadastrar {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: white;
+}
+
+.cor-de-fundo {
+  height: 490px;
+  width: 520px;
+  background-color: #17171a;
+}
+
+.cadastrar-usuario {
+  background-color: rgb(12, 12, 12);
+  margin-bottom: 60px;
+  padding: 5px;
+}
+
+#cadastroUsuario {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.cadastro-input {
+  display: inline-block;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+  color: #333;
+  background-color: #fff;
+  transition: border-color 0.2s;
+}
+
+.cadastro-input:focus {
+  border-color: #007bff;
+  outline: none;
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+.botao-cadastrar {
+  /* margin-top: 90px; */
+  width: 180px;
+  height: 50px;
+  font-size: 25px !important;
+  margin-bottom: 15px;
+}
+
+.ajuste-botoes {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: -20px;
+}
+
+.botao-sair {
+  display: flex;
+  width: 384px !important;
+  height: 50px;
+  background-color: gray;
+  margin-top: 310px !important;
+  color: white;
+  font-size: 30px;
+  text-decoration: none;
+  padding-left: 120px !important;
+  padding-top: 1px;
+  cursor: pointer;
+}
+
+.botao-sair span {
+  margin-top: 9px;
+  font-size: 25px !important;
+}
+
+.jooj {
+  display: flex;
+  flex-direction: column;
+  resize: none;
+  /* height: 150px; */
+  /* margin-bottom: -100px; */
+  margin-top: -10px;
+}
+
+.jooj-denuncia {
+  display: flex;
+  flex-direction: column;
+  resize: none;
+  /* height: 150px; */
+  /* margin-bottom: -100px; */
+  margin-top: -10px;
+}
+
+textarea {
+  margin-bottom: -20px;
+}
+
+.cacete {
+  margin-top: -6px;
+}
+
+.cacete02 {
+  margin-top: 2px;
+}
+
+.botao-denunciar {
+  margin-top: 60px;
+  width: 180px;
+  height: 50px;
+  font-size: 25px !important;
+  margin-bottom: 15px;
+}
+
+.cor-de-fundo-cadastrar {
+  height: 500px;
+  width: 620px;
+  background-color: #17171a;
+  border-radius: 5px;
+}
+
+.cor-de-fundo-editar-denuncia {
+  height: 500px;
+  width: 620px;
+  background-color: #17171a;
+  border-radius: 5px;
+}
+
+.container-batata {
+  margin-left: 310px;
+}
+
+.titulo-form-editar-denuncia {
+  font-size: 45px;
+  padding: 10px;
+  margin-top: 20px;
+  color: white;
+  background-color: #17171a;
+  border-radius: 15px 15px 15px 15px;
+  width: 40vw;
+  text-align: center;
+}
+
+.cachorro {
+  text-align: center;
+}
+
+.boi {
+  margin-top: -200px;
+}
